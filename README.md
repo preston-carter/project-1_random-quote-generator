@@ -1,1 +1,1 @@
-# project-1_random-quote-generator
+# Team Treehouse Fullstack JS TechDegree Project-1_Random-Quote-Generator
