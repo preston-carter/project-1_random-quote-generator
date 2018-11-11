@@ -189,11 +189,11 @@ var quotes = [
 
 /***
   Create the `getRandomQuote` function to:
-    - Generate/return a random number limited to the maximum number of quotes.
+    - Generate a random number limited to the maximum number of quotes and return the quote object!
 ***/
 
 function getRandomQuote(array) {
-  return Math.floor(Math.random() * array.length);
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 /***
@@ -215,7 +215,7 @@ function getRandomRGB() {
 
 function printQuote() {
   //Call `getRandomQuote` and assign to `getQuote`
-  var getQuote = quotes[getRandomQuote(quotes)];
+  var getQuote = getRandomQuote(quotes);
     //Initialize variable to store our quote/property html expression
     var html = '';
     //Every quote will have quote + source properties.. add to html string.
@@ -258,15 +258,16 @@ function changeBackgroundColor() {
 }
 
 /***
-  When the "Show another quote" button is clicked, the event listeners
+  When the "Show another quote" button is clicked, the event listener
   below will be triggered, calling the `printQuote` + `changeBackgroundColor`
   functions. Also, create a timed interval to load a quote every 30 seconds regardless of whether or not the "Show another quote" button is clicked.
 ***/
 
-//Print quote!
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-//And change the background color!
-document.getElementById('loadQuote').addEventListener("click", changeBackgroundColor, false);
+//Print quote and change the background color!
+document.getElementById('loadQuote').addEventListener("click", function() {
+  printQuote();
+  changeBackgroundColor();
+});
 //Init interval timer
 setInterval(function() {
   //Load new quote + background color!
